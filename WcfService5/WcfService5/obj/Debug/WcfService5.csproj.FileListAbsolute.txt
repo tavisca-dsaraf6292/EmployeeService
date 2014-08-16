@@ -1,0 +1,5 @@
+D:\WcfService5\WcfService5\bin\WcfService5.dll
+D:\WcfService5\WcfService5\bin\WcfService5.pdb
+D:\WcfService5\WcfService5\obj\Debug\WcfService5.csprojResolveAssemblyReference.cache
+D:\WcfService5\WcfService5\obj\Debug\WcfService5.dll
+D:\WcfService5\WcfService5\obj\Debug\WcfService5.pdb
