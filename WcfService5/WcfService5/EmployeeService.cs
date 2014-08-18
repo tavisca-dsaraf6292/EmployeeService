@@ -13,6 +13,7 @@ namespace WcfService5
     public interface IAddandCreate
     {
         [OperationContract]
+        [FaultContract(typeof(ArgumentNullException))]
         void CreateEmployee(string name, string remark, DateTime today);
     }
 

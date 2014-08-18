@@ -9,7 +9,102 @@
 //------------------------------------------------------------------------------
 
 namespace Consumer.EmployeeService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Employee", Namespace="http://schemas.datacontract.org/2004/07/WcfService5")]
+    [System.SerializableAttribute()]
+    public partial class Employee : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string remarkField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime date {
+            get {
+                return this.dateField;
+            }
+            set {
+                if ((this.dateField.Equals(value) != true)) {
+                    this.dateField = value;
+                    this.RaisePropertyChanged("date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string remark {
+            get {
+                return this.remarkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.remarkField, value) != true)) {
+                    this.remarkField = value;
+                    this.RaisePropertyChanged("remark");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EmployeeService.IAddandCreate")]
@@ -63,22 +158,22 @@ namespace Consumer.EmployeeService {
     public interface IRetrieve {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRetrieve/GetAllEmployees", ReplyAction="http://tempuri.org/IRetrieve/GetAllEmployeesResponse")]
-        WcfService5.Employee[] GetAllEmployees();
+        Consumer.EmployeeService.Employee[] GetAllEmployees();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRetrieve/GetAllEmployees", ReplyAction="http://tempuri.org/IRetrieve/GetAllEmployeesResponse")]
-        System.Threading.Tasks.Task<WcfService5.Employee[]> GetAllEmployeesAsync();
+        System.Threading.Tasks.Task<Consumer.EmployeeService.Employee[]> GetAllEmployeesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRetrieve/SearchById", ReplyAction="http://tempuri.org/IRetrieve/SearchByIdResponse")]
-        WcfService5.Employee SearchById(int id);
+        string SearchById(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRetrieve/SearchById", ReplyAction="http://tempuri.org/IRetrieve/SearchByIdResponse")]
-        System.Threading.Tasks.Task<WcfService5.Employee> SearchByIdAsync(int id);
+        System.Threading.Tasks.Task<string> SearchByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRetrieve/SearchByName", ReplyAction="http://tempuri.org/IRetrieve/SearchByNameResponse")]
-        WcfService5.Employee SearchByName(string name);
+        string SearchByName(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRetrieve/SearchByName", ReplyAction="http://tempuri.org/IRetrieve/SearchByNameResponse")]
-        System.Threading.Tasks.Task<WcfService5.Employee> SearchByNameAsync(string name);
+        System.Threading.Tasks.Task<string> SearchByNameAsync(string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -108,27 +203,27 @@ namespace Consumer.EmployeeService {
                 base(binding, remoteAddress) {
         }
         
-        public WcfService5.Employee[] GetAllEmployees() {
+        public Consumer.EmployeeService.Employee[] GetAllEmployees() {
             return base.Channel.GetAllEmployees();
         }
         
-        public System.Threading.Tasks.Task<WcfService5.Employee[]> GetAllEmployeesAsync() {
+        public System.Threading.Tasks.Task<Consumer.EmployeeService.Employee[]> GetAllEmployeesAsync() {
             return base.Channel.GetAllEmployeesAsync();
         }
         
-        public WcfService5.Employee SearchById(int id) {
+        public string SearchById(int id) {
             return base.Channel.SearchById(id);
         }
         
-        public System.Threading.Tasks.Task<WcfService5.Employee> SearchByIdAsync(int id) {
+        public System.Threading.Tasks.Task<string> SearchByIdAsync(int id) {
             return base.Channel.SearchByIdAsync(id);
         }
         
-        public WcfService5.Employee SearchByName(string name) {
+        public string SearchByName(string name) {
             return base.Channel.SearchByName(name);
         }
         
-        public System.Threading.Tasks.Task<WcfService5.Employee> SearchByNameAsync(string name) {
+        public System.Threading.Tasks.Task<string> SearchByNameAsync(string name) {
             return base.Channel.SearchByNameAsync(name);
         }
     }

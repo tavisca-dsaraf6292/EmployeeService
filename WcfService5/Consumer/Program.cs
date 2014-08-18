@@ -1,9 +1,9 @@
 ﻿using System;
-using WcfService5;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Consumer.EmployeeService;
 
 namespace Consumer
 {
@@ -13,7 +13,8 @@ namespace Consumer
         {
                 string name,remark,result;
                 int choice,id=0;
-                var obj = new WcfService5.EmployeeService();  
+                var createObj = new AddandCreateClient("BasicHttpBinding_IAddandCreate");
+                var retrieveObj = new RetrieveClient("WSHttpBinding_IRetrieve");  
                 DateTime today = DateTime.Today;
                 do
                 {
@@ -32,11 +33,11 @@ namespace Consumer
                             name = Console.ReadLine();
                             Console.WriteLine("Enter Remark for Employee:");
                             remark = Console.ReadLine();
-                            obj.CreateEmployee(name, remark, today);
+                            createObj.CreateEmployee(name, remark, today);
                             break;
                         case 2:
-                            var returnedList = obj.GetAllEmployees();
-                            for (int i = 0; i < returnedList.Count; i++)
+                            var returnedList = retrieveObj.GetAllEmployees();
+                            for (int i = 0; i < returnedList.Length; i++)
                             {
                                 Console.WriteLine("\n\n\n");
                                 Console.WriteLine("Id:" + returnedList[i].Id);
@@ -48,17 +49,20 @@ namespace Consumer
                         case 3:
                             Console.WriteLine("Enter Id Of Employee:");
                             id = Convert.ToInt32(Console.ReadLine());
-                            result = obj.GetEmployeeDetails(id);
+                            result = retrieveObj.SearchById(id);
                             Console.WriteLine(result + "\n\n");
                             break;
                         case 4:
                             Console.WriteLine("Enter Name Of Employee:");
                             name = Console.ReadLine();
-                            result = obj.GetEmployeeDetails(name);
+                            result = retrieveObj.SearchByName(name);
                             Console.WriteLine(result + "\n\n");
                             break;
+                        case 5:
+                            System.Environment.Exit(1);
+                            break;
                         default:
-                            Console.WriteLine("Invalid Choice..!!!");
+                            Console.WriteLine("\n\nInvalid Choice.");
                             break;
                     }
                 } while (choice != 5);

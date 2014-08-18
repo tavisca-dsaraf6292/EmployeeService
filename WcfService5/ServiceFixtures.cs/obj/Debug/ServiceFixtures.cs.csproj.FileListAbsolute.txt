@@ -1,0 +1,8 @@
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\obj\Debug\ServiceFixtures.cs.csprojResolveAssemblyReference.cache
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\bin\Debug\ServiceFixtures.cs.dll
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\bin\Debug\ServiceFixtures.cs.pdb
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\bin\Debug\Consumer.exe
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\bin\Debug\Consumer.pdb
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\obj\Debug\ServiceFixtures.cs.dll
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\obj\Debug\ServiceFixtures.cs.pdb
+D:\EmployeeService\EmployeeService\WcfService5\ServiceFixtures.cs\bin\Debug\ServiceFixtures.cs.dll.config

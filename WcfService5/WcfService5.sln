@@ -8,6 +8,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consumer", "Consumer\Consum
 		{27769AE5-F7AC-447B-AF82-8EE5293C4800} = {27769AE5-F7AC-447B-AF82-8EE5293C4800}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceFixtures.cs", "ServiceFixtures.cs\ServiceFixtures.cs.csproj", "{7F4D238C-2BB6-41BE-9912-8392C4439089}"
+	ProjectSection(ProjectDependencies) = postProject
+		{27769AE5-F7AC-447B-AF82-8EE5293C4800} = {27769AE5-F7AC-447B-AF82-8EE5293C4800}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +27,10 @@ Global
 		{9EBA6855-393A-4096-A89C-AE002484E5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EBA6855-393A-4096-A89C-AE002484E5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EBA6855-393A-4096-A89C-AE002484E5B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F4D238C-2BB6-41BE-9912-8392C4439089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F4D238C-2BB6-41BE-9912-8392C4439089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F4D238C-2BB6-41BE-9912-8392C4439089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F4D238C-2BB6-41BE-9912-8392C4439089}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

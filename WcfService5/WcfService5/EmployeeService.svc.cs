@@ -13,17 +13,25 @@ namespace WcfService5
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession, ConcurrencyMode = ConcurrencyMode.Single)]
     public class EmployeeService : IAddandCreate,IRetrieve
     {
-        private List<Employee> _List = new List<Employee>();
+        private static List<Employee> _List = new List<Employee>();
         private int _Count;
         public void CreateEmployee(string name,string remark,DateTime today)
         {
-            _List.Add(new Employee() { Id = _Count, Name =name,remark=remark,date=today});
-            _Count++; 
+            if (name == string.Empty || remark == string.Empty)
+            {
+                throw new ArgumentNullException();
+            }
+            else
+            {
+                _List.Add(new Employee() { Id = _Count, Name = name, remark = remark, date = today });
+                _Count++;
+            }
         }
 
-        public void AddRemarksToEmployee()
+        public void AddRemarksToEmployee(int id)
         {
-            throw new NotImplementedException();
+
+            //throw new NotImplementedException();
         }
 
         public List<Employee> GetAllEmployees()

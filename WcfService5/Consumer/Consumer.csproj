@@ -54,6 +54,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\DataSources\WcfService5.Employee.datasource" />
+    <None Include="Service References\EmployeeService\Consumer.EmployeeService.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\EmployeeService\EmployeeService.wsdl" />
     <None Include="Service References\EmployeeService\EmployeeService.xsd">
       <SubType>Designer</SubType>
@@ -85,12 +88,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WcfService5\WcfService5.csproj">
-      <Project>{27769ae5-f7ac-447b-af82-8ee5293c4800}</Project>
-      <Name>WcfService5</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
