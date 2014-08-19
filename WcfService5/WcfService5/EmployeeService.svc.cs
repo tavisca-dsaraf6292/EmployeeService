@@ -30,30 +30,54 @@ namespace WcfService5
 
         public void AddRemarksToEmployee(int id)
         {
-
-            //throw new NotImplementedException();
         }
 
         public List<Employee> GetAllEmployees()
         {
             return _List;
-            //throw new NotImplementedException();
         }
 
         public string GetEmployeeDetails(int id)
         {
-            //var objToBeReturned = new Employee();
+
             int index =_List.FindIndex(a=>a.Id==id);
-            if(index!=-1)
-                return "ID:"+_List[index].Id+"\n"+"Name:"+_List[index].Name+"\n"+"Remark:"+_List[index].remark+"\n"+"Date:"+_List[index].date+"\n";
-            return "Record Not Found..!!!";
+            try
+            {
+                if (index != -1)
+                    return "ID:" + _List[index].Id + "\n" + "Name:" + _List[index].Name + "\n" + "Remark:" + _List[index].remark + "\n" + "Date:" + _List[index].date + "\n";
+                else
+                    throw new Exception();
+            }
+            catch(Exception ex)
+            {
+                ExceptionFaultContract _faultcontract = new ExceptionFaultContract();
+                _faultcontract.StatusCode = "Empty Database";
+                _faultcontract.Message = "Requested ID is Not Present in the Database";
+                _faultcontract.Description = "Error occurred in service";
+                throw new FaultException<ExceptionFaultContract>(_faultcontract);
+            }
+            //return "Record Not Found.";
         }
 
         public string GetEmployeeDetails(string name)
         {
             int index = _List.FindIndex(a => a.Name == name);
-            if (index != -1)
-                return "ID:" + _List[index].Id + "\n" + "Name:" + _List[index].Name + "\n" + "Remark:" + _List[index].remark + "\n" + "Date:" + _List[index].date + "\n"; return "Record Not Found..!!!";
+            try
+            {
+                if (index != -1)
+                    return "ID:" + _List[index].Id + "\n" + "Name:" + _List[index].Name + "\n" + "Remark:" + _List[index].remark + "\n" + "Date:" + _List[index].date + "\n";
+                else
+                    throw new Exception();
+            }
+            catch(Exception ex)
+            {
+                ExceptionFaultContract _faultcontract = new ExceptionFaultContract();
+                _faultcontract.StatusCode = "Empty Database";
+                _faultcontract.Message = "Requested Name is Not Present in the Database";
+                _faultcontract.Description = "Error occurred in service";
+                throw new FaultException<ExceptionFaultContract>(_faultcontract);
+            }
+            //return "Record Not Found.";
         }
     }
 }

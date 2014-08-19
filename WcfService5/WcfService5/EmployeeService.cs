@@ -25,13 +25,14 @@ namespace WcfService5
         List<Employee> GetAllEmployees();
 
         [OperationContract(Name = "SearchById")]
+        [FaultContract(typeof(ExceptionFaultContract))]
         string GetEmployeeDetails(int id);
 
         [OperationContract(Name = "SearchByName")]
+        [FaultContract(typeof(ExceptionFaultContract))]
         string GetEmployeeDetails(string name);
         // TODO: Add your service operations here
     }
-
 
     [DataContract]
     public class Employee

@@ -172,6 +172,25 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IRetrieve_SearchById_ExceptionFaultContractFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSHttpBinding_IRetrieve_SearchByName_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -210,11 +229,31 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSHttpBinding_IRetrieve_SearchByName_ExceptionFaultContractFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:62539/EmployeeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:62539/EmployeeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
       <xsd:import schemaLocation="http://localhost:62539/EmployeeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:62539/EmployeeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService5" />
+      <xsd:import schemaLocation="http://localhost:62539/EmployeeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfService5" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAddandCreate_CreateEmployee_InputMessage">
@@ -222,6 +261,9 @@
   </wsdl:message>
   <wsdl:message name="IAddandCreate_CreateEmployee_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddandCreate_CreateEmployee_ArgumentNullExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System" name="detail" element="q1:ArgumentNullException" />
   </wsdl:message>
   <wsdl:message name="IRetrieve_GetAllEmployees_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmployees" />
@@ -235,16 +277,23 @@
   <wsdl:message name="IRetrieve_SearchById_OutputMessage">
     <wsdl:part name="parameters" element="tns:SearchByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IRetrieve_SearchById_ExceptionFaultContractFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q2:ExceptionFaultContract" />
+  </wsdl:message>
   <wsdl:message name="IRetrieve_SearchByName_InputMessage">
     <wsdl:part name="parameters" element="tns:SearchByName" />
   </wsdl:message>
   <wsdl:message name="IRetrieve_SearchByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:SearchByNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IRetrieve_SearchByName_ExceptionFaultContractFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q3:ExceptionFaultContract" />
+  </wsdl:message>
   <wsdl:portType name="IAddandCreate">
     <wsdl:operation name="CreateEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IAddandCreate/CreateEmployee" message="tns:IAddandCreate_CreateEmployee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAddandCreate/CreateEmployeeResponse" message="tns:IAddandCreate_CreateEmployee_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAddandCreate/CreateEmployeeArgumentNullExceptionFault" name="ArgumentNullExceptionFault" message="tns:IAddandCreate_CreateEmployee_ArgumentNullExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IRetrieve">
@@ -255,10 +304,12 @@
     <wsdl:operation name="SearchById">
       <wsdl:input wsaw:Action="http://tempuri.org/IRetrieve/SearchById" message="tns:IRetrieve_SearchById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRetrieve/SearchByIdResponse" message="tns:IRetrieve_SearchById_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IRetrieve/SearchByIdExceptionFaultContractFault" name="ExceptionFaultContractFault" message="tns:IRetrieve_SearchById_ExceptionFaultContractFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="SearchByName">
       <wsdl:input wsaw:Action="http://tempuri.org/IRetrieve/SearchByName" message="tns:IRetrieve_SearchByName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRetrieve/SearchByNameResponse" message="tns:IRetrieve_SearchByName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IRetrieve/SearchByNameExceptionFaultContractFault" name="ExceptionFaultContractFault" message="tns:IRetrieve_SearchByName_ExceptionFaultContractFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAddandCreate" type="tns:IAddandCreate">
@@ -271,6 +322,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ArgumentNullExceptionFault">
+        <soap:fault use="literal" name="ArgumentNullExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WSHttpBinding_IRetrieve" type="tns:IRetrieve">
@@ -297,6 +351,10 @@
         <wsp:PolicyReference URI="#WSHttpBinding_IRetrieve_SearchById_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ExceptionFaultContractFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IRetrieve_SearchById_ExceptionFaultContractFault_Fault" />
+        <soap12:fault use="literal" name="ExceptionFaultContractFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="SearchByName">
       <soap12:operation soapAction="http://tempuri.org/IRetrieve/SearchByName" style="document" />
@@ -308,6 +366,10 @@
         <wsp:PolicyReference URI="#WSHttpBinding_IRetrieve_SearchByName_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ExceptionFaultContractFault">
+        <wsp:PolicyReference URI="#WSHttpBinding_IRetrieve_SearchByName_ExceptionFaultContractFault_Fault" />
+        <soap12:fault use="literal" name="ExceptionFaultContractFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="EmployeeService">

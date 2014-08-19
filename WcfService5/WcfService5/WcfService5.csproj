@@ -69,6 +69,7 @@
       <DependentUpon>EmployeeService.svc</DependentUpon>
     </Compile>
     <Compile Include="EmployeeService.cs" />
+    <Compile Include="ExceptionFaultContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
