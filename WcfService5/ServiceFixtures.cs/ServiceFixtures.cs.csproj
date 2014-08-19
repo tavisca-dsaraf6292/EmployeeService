@@ -58,14 +58,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="ServiceFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Consumer\Consumer.csproj">
-      <Project>{9eba6855-393a-4096-a89c-ae002484e5b4}</Project>
-      <Name>Consumer</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -82,6 +76,9 @@
     </None>
     <None Include="Service References\EmployeeService\EmployeeService2.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\EmployeeService\ServiceFixtures.cs.EmployeeService.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

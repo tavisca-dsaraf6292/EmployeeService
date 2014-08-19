@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Consumer.EmployeeService;
 
 namespace Consumer
@@ -23,7 +19,8 @@ namespace Consumer
                     Console.WriteLine("2.Get Details Of All Employees.");
                     Console.WriteLine("3.Search Employee Details by Id.");
                     Console.WriteLine("4.Search Employee Details by Name.");
-                    Console.WriteLine("5.Exit.");
+                    Console.WriteLine("5.Add Remark To An Employee.");
+                    Console.WriteLine("6.Exit.");
                     Console.WriteLine("Enter your Choice:");
                     choice = Convert.ToInt32(Console.ReadLine());
                     switch (choice)
@@ -59,13 +56,24 @@ namespace Consumer
                             Console.WriteLine(result + "\n\n");
                             break;
                         case 5:
+                            Console.WriteLine("Enter Id Of Employee:");
+                            id = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter Remark For Employee:");
+                            remark = Console.ReadLine();
+                            result = createObj.AddRemarksToEmployee(id, remark);
+
+
+                            //result = createObj.;
+                            Console.WriteLine(result + "\n\n");
+                            break;
+                        case 6:
                             System.Environment.Exit(1);
                             break;
                         default:
                             Console.WriteLine("\n\nInvalid Choice.");
                             break;
                     }
-                } while (choice != 5);
+                } while (choice != 6);
         }
     }
 }

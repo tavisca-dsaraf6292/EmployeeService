@@ -14,7 +14,11 @@ namespace WcfService5
     {
         [OperationContract]
         [FaultContract(typeof(ArgumentNullException))]
-        void CreateEmployee(string name, string remark, DateTime today);
+        string CreateEmployee(string name, string remark, DateTime today);
+
+        [OperationContract]
+        [FaultContract(typeof(ExceptionFaultContract))]
+        string AddRemarksToEmployee(int id, string remark);
     }
 
 

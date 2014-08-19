@@ -8,3 +8,5 @@ D:\EmployeeService\EmployeeService\WcfService5\WcfService5\bin\WcfService5.pdb
 D:\EmployeeService\EmployeeService\WcfService5\WcfService5\obj\Debug\WcfService5.csprojResolveAssemblyReference.cache
 D:\EmployeeService\EmployeeService\WcfService5\WcfService5\obj\Debug\WcfService5.dll
 D:\EmployeeService\EmployeeService\WcfService5\WcfService5\obj\Debug\WcfService5.pdb
+D:\EmployeeService\EmployeeService\WcfService5\WcfService5\bin\ParameterValidator.dll
+D:\EmployeeService\EmployeeService\WcfService5\WcfService5\bin\ParameterValidator.pdb

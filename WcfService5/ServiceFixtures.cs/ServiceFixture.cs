@@ -7,7 +7,7 @@ using ServiceFixtures.cs.EmployeeService;
 namespace ServiceFixtures.cs
 {
     [TestClass]
-    public class UnitTest1
+    public class ServiceFixture
     {
         [TestMethod]
         [ExpectedException(typeof(System.ServiceModel.FaultException))]
@@ -20,9 +20,10 @@ namespace ServiceFixtures.cs
               
         }
         [TestMethod]
+        [ExpectedException(typeof(System.ServiceModel.FaultException))]
         public void TestToCheckWhetherEmployeeIsAddedSuccessfully()
         {
-            string name = "john";
+            string name = "john$%@";
             string remark = "noble";
             var createEmployeeClient = new ServiceFixtures.cs.EmployeeService.AddandCreateClient("BasicHttpBinding_IAddandCreate");
             var result = createEmployeeClient.CreateEmployee(name,remark,DateTime.Now);

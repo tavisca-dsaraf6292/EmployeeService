@@ -265,6 +265,15 @@
   <wsdl:message name="IAddandCreate_CreateEmployee_ArgumentNullExceptionFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System" name="detail" element="q1:ArgumentNullException" />
   </wsdl:message>
+  <wsdl:message name="IAddandCreate_AddRemarksToEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRemarksToEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IAddandCreate_AddRemarksToEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRemarksToEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddandCreate_AddRemarksToEmployee_ExceptionFaultContractFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q2:ExceptionFaultContract" />
+  </wsdl:message>
   <wsdl:message name="IRetrieve_GetAllEmployees_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEmployees" />
   </wsdl:message>
@@ -278,7 +287,7 @@
     <wsdl:part name="parameters" element="tns:SearchByIdResponse" />
   </wsdl:message>
   <wsdl:message name="IRetrieve_SearchById_ExceptionFaultContractFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q2:ExceptionFaultContract" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q3:ExceptionFaultContract" />
   </wsdl:message>
   <wsdl:message name="IRetrieve_SearchByName_InputMessage">
     <wsdl:part name="parameters" element="tns:SearchByName" />
@@ -287,13 +296,18 @@
     <wsdl:part name="parameters" element="tns:SearchByNameResponse" />
   </wsdl:message>
   <wsdl:message name="IRetrieve_SearchByName_ExceptionFaultContractFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q3:ExceptionFaultContract" />
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService5" name="detail" element="q4:ExceptionFaultContract" />
   </wsdl:message>
   <wsdl:portType name="IAddandCreate">
     <wsdl:operation name="CreateEmployee">
       <wsdl:input wsaw:Action="http://tempuri.org/IAddandCreate/CreateEmployee" message="tns:IAddandCreate_CreateEmployee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAddandCreate/CreateEmployeeResponse" message="tns:IAddandCreate_CreateEmployee_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IAddandCreate/CreateEmployeeArgumentNullExceptionFault" name="ArgumentNullExceptionFault" message="tns:IAddandCreate_CreateEmployee_ArgumentNullExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRemarksToEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddandCreate/AddRemarksToEmployee" message="tns:IAddandCreate_AddRemarksToEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddandCreate/AddRemarksToEmployeeResponse" message="tns:IAddandCreate_AddRemarksToEmployee_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IAddandCreate/AddRemarksToEmployeeExceptionFaultContractFault" name="ExceptionFaultContractFault" message="tns:IAddandCreate_AddRemarksToEmployee_ExceptionFaultContractFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IRetrieve">
@@ -324,6 +338,18 @@
       </wsdl:output>
       <wsdl:fault name="ArgumentNullExceptionFault">
         <soap:fault use="literal" name="ArgumentNullExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddRemarksToEmployee">
+      <soap:operation soapAction="http://tempuri.org/IAddandCreate/AddRemarksToEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ExceptionFaultContractFault">
+        <soap:fault use="literal" name="ExceptionFaultContractFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>

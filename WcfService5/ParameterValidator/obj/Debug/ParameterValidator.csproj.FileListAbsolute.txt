@@ -1,0 +1,5 @@
+D:\EmployeeService\EmployeeService\WcfService5\ParameterValidator\obj\Debug\ParameterValidator.csprojResolveAssemblyReference.cache
+D:\EmployeeService\EmployeeService\WcfService5\ParameterValidator\bin\Debug\ParameterValidator.dll
+D:\EmployeeService\EmployeeService\WcfService5\ParameterValidator\bin\Debug\ParameterValidator.pdb
+D:\EmployeeService\EmployeeService\WcfService5\ParameterValidator\obj\Debug\ParameterValidator.dll
+D:\EmployeeService\EmployeeService\WcfService5\ParameterValidator\obj\Debug\ParameterValidator.pdb
